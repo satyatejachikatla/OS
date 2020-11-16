@@ -61,6 +61,10 @@ node* common_ancestor(node* n1,node* n2) {
 		if(n1 != n2)
 			return n1->next;
 	}
+	if(is_empty(&s1) && n2)
+		return n2;
+	if(is_empty(&s2) && n1)
+		return n1;
 	return NULL;
 }
 
@@ -83,7 +87,7 @@ int main() {
 	N[5].next= &N[6];
 	N[6].next= NULL;
 
-	node* n = common_ancestor(&N[0],&N[7]);
+	node* n = common_ancestor(&N[2],&N[0]);
 
 	printf("common %d\n",n->data);
 
